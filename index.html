@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Todo App</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1>todos</h1>
+        <div class="new-todo">
+            <button class="toggle-all" onclick="handler.toggleAll()">All</button>
+            <input id="addTodoTextInput" type="text" placeholder="What needs to be done?">
+            <button class="add-todos" onclick="handler.addTodo()" type="button">Add</button>
+        </div>
+    </div>
+
+
+
+    <!--<div class="change">-->
+        <!--<input id="position" type="number">-->
+        <!--<input id="changeTodoButton" type="text">-->
+        <!--<button class="change-todos" onclick="handler.changeTodo()">Change</button>-->
+    <!--</div>-->
+
+
+    <!--<div class="toggle">-->
+        <!--<input type="number" id="togglePosition">-->
+        <!--<button class="toggle-button" onclick="handler.toggleCompleted()">toggle</button>-->
+    <!--</div>-->
+
+
+
+    <div class="">
+
+        <ul class="todo-list">
+
+        </ul>
+    </div>
+</div>
+
+<script src="todos.js"></script>
+</body>
+</html>
