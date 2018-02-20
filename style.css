@@ -112,3 +112,19 @@ span {
     border: 1px solid #999;
     border-radius: 50%;
 }
+.checkButton {
+    background: none;
+    color: lightseagreen;
+    border: 1px solid gray;;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+}
+.checkButton:focus,
+.checkButton:active {
+
+}

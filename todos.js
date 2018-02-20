@@ -76,17 +76,23 @@ const view = {
         todosUl.innerHTML = '';
         for(let i = 0; i < todosList.todos.length; i++) {
             let todoLi = document.createElement("li");
-            let todoTextWithCompletion = '';
+            let checkButton = document.createElement("button");
+            checkButton.className = "checkButton";
             let todo = todosList.todos[i];
 
             if(todo.completed === true){
-                todoTextWithCompletion = "(X) " + todo.todoText;
+                checkButton.textContent = " X ";
+                todoLi.style.textDecoration = "line-through"
+                // todoTextWithCompletion = "(X) " + todo.todoText;
             } else {
-                todoTextWithCompletion = "( ) " + todo.todoText;
+                checkButton.textContent = "   "
+                // todoTextWithCompletion = "( ) " + todo.todoText;
             }
             todoLi.id = i;
-            todoLi.textContent = todoTextWithCompletion;
-            todoLi.appendChild(this.createToggleCompletedButton());
+            todoLi.textContent = todo.todoText;
+
+            todoLi.appendChild(checkButton);
+            todoLi.insertBefore(checkButton, todoLi.childNodes[0]);
             todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
         }
@@ -106,17 +112,11 @@ const view = {
             }
         });
     },
-    createToggleCompletedButton: function () {
-        let toggleCompletedButton = document.createElement('span');
-        toggleCompletedButton.textContent = ' * ';
-        toggleCompletedButton.className = 'completed';
-        return toggleCompletedButton;
-    },
     setUpToggleCompleted: function () {
         let todosUl = document.querySelector('ul');
         todosUl.addEventListener('click', function (event) {
             let elementClicked = event.target;
-            if (elementClicked.className === 'completed') {
+            if (elementClicked.className === 'checkButton') {
                 handler.toggleCompleted(parseInt(elementClicked.parentNode.id));
             }
         })
