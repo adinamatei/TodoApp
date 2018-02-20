@@ -107,15 +107,15 @@ span {
     border: none;
     font-size: 24px;
 }
-.checked {
-    content: "X";
-    border: 1px solid #999;
-    border-radius: 50%;
-}
+/*.checked {*/
+    /*content: "X";*/
+    /*border: 1px solid #999;*/
+    /*border-radius: 50%;*/
+/*}*/
 .checkButton {
     background: none;
     color: lightseagreen;
-    border: 1px solid gray;;
+    border: 1px solid #999;;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -123,8 +123,4 @@ span {
     margin-right: 20px;
     width: 30px;
     height: 30px;
-}
-.checkButton:focus,
-.checkButton:active {
-
 }

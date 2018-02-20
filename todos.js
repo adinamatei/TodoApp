@@ -81,11 +81,12 @@ const view = {
             let todo = todosList.todos[i];
 
             if(todo.completed === true){
-                checkButton.textContent = " X ";
-                todoLi.style.textDecoration = "line-through"
+                checkButton.textContent = "✔";
+                todoLi.style.textDecoration = "line-through";
+                todoLi.style.color = "lightgray"
                 // todoTextWithCompletion = "(X) " + todo.todoText;
             } else {
-                checkButton.textContent = "   "
+                checkButton.textContent = " "
                 // todoTextWithCompletion = "( ) " + todo.todoText;
             }
             todoLi.id = i;
