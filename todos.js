@@ -48,7 +48,7 @@ const handler = {
     },
     changeTodo: function () {
         let position = document.querySelector('#position');
-        let changeTodoButton = document.querySelector('#changeTodoButton');
+        let changeTodoButton = document.querySelector('.changeTodoButton');
         todosList.changeTodo(position.value, changeTodoButton.value);
         position.value = '';
         changeTodoButton.value = '';
@@ -59,9 +59,7 @@ const handler = {
         view.displayTodos();
     },
     toggleCompleted: function (position) {
-        // let togglePosition = document.getElementById('togglePosition');
         todosList.toggleCompleted(position);
-        // togglePosition.value = '';
         view.displayTodos();
     },
     toggleAll: function () {
@@ -84,10 +82,8 @@ const view = {
                 checkButton.textContent = "✔";
                 todoLi.style.textDecoration = "line-through";
                 todoLi.style.color = "lightgray"
-                // todoTextWithCompletion = "(X) " + todo.todoText;
             } else {
                 checkButton.textContent = " "
-                // todoTextWithCompletion = "( ) " + todo.todoText;
             }
             todoLi.id = i;
             todoLi.textContent = todo.todoText;
@@ -104,6 +100,7 @@ const view = {
         deleteButton.className = 'deleteButton';
         return deleteButton;
     },
+
     setUpEventListener: function () {
         let todosUl = document.querySelector('ul');
         todosUl.addEventListener('click', function (event) {
@@ -111,18 +108,13 @@ const view = {
             if (elementClicked.className === 'deleteButton') {
                 handler.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
-        });
-    },
-    setUpToggleCompleted: function () {
-        let todosUl = document.querySelector('ul');
-        todosUl.addEventListener('click', function (event) {
-            let elementClicked = event.target;
             if (elementClicked.className === 'checkButton') {
                 handler.toggleCompleted(parseInt(elementClicked.parentNode.id));
             }
-        })
-    }
+
+        });
+    },
 };
 view.setUpEventListener();
-view.setUpToggleCompleted();
+
 
