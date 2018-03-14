@@ -124,3 +124,10 @@ span {
     width: 30px;
     height: 30px;
 }
+
+p {
+    display: inline;
+}
+.editable {
+    width: auto;
+}

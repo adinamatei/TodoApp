@@ -15,7 +15,6 @@ const todosList = {
     },
     toggleCompleted: function(position) {
         let todo = this.todos[position];
-        console.log(todo, position, todo.completed);
         todo.completed = !todo.completed;
     },
     toggleAll: function() {
@@ -46,12 +45,17 @@ const handler = {
         addTodoTextInput.value = '';
         view.displayTodos();
     },
-    changeTodo: function () {
-        let position = document.querySelector('#position');
-        let changeTodoButton = document.querySelector('.changeTodoButton');
-        todosList.changeTodo(position.value, changeTodoButton.value);
-        position.value = '';
-        changeTodoButton.value = '';
+    // changeTodo: function () {
+    //     let position = document.querySelector('#position');
+    //     let changeTodoButton = document.querySelector('.changeTodoButton');
+    //     todosList.changeTodo(position.value, changeTodoButton.value);
+    //     position.value = '';
+    //     changeTodoButton.value = '';
+    //     view.displayTodos();
+    // },
+    updateTodo: function(position, newText) {
+        console.log(position, newText);
+        todosList.changeTodo(position, newText);
         view.displayTodos();
     },
     deleteTodo: function (position) {
@@ -74,22 +78,31 @@ const view = {
         todosUl.innerHTML = '';
         for(let i = 0; i < todosList.todos.length; i++) {
             let todoLi = document.createElement("li");
+            let todoContent = document.createElement("p");
+            
+            todoContent.addEventListener('dblclick', function(e) {
+                let editmode = view.createChangeTodos(i);
+                todoContent.textContent = "";
+                todoContent.appendChild(editmode);
+            });
+
             let checkButton = document.createElement("button");
             checkButton.className = "checkButton";
             let todo = todosList.todos[i];
 
             if(todo.completed === true){
                 checkButton.textContent = "✔";
-                todoLi.style.textDecoration = "line-through";
-                todoLi.style.color = "lightgray"
+                todoContent.style.textDecoration = "line-through";
+                todoContent.style.color = "lightgrey"
             } else {
                 checkButton.textContent = " "
             }
             todoLi.id = i;
-            todoLi.textContent = todo.todoText;
+            todoContent.textContent = todo.todoText;
 
             todoLi.appendChild(checkButton);
             todoLi.insertBefore(checkButton, todoLi.childNodes[0]);
+            todoLi.appendChild(todoContent);
             todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
         }
@@ -101,6 +114,18 @@ const view = {
         return deleteButton;
     },
 
+    createChangeTodos: function (position) {
+        let input = document.createElement("input");
+        input.className = "changeTodo";
+
+        input.addEventListener('keypress', function(event) {
+            if (event.keyCode === 13) {
+                let value = event.target.value;
+                handler.updateTodo(position, value);
+            }
+        });
+        return input;
+    },
     setUpEventListener: function () {
         let todosUl = document.querySelector('ul');
         todosUl.addEventListener('click', function (event) {

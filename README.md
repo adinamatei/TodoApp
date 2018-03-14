@@ -6,4 +6,4 @@ I have created this project, a To Do List App to apply the knowledge about Javas
 
 This is a work in progress....
 
-[https://adinamatei.github.io/todoApp/](https://adinamatei.github.io/todoApp/``)
+[https://adinamatei.github.io/todoApp/](https://adinamatei.github.io/todoApp/)
