@@ -79,7 +79,7 @@ const view = {
         for(let i = 0; i < todosList.todos.length; i++) {
             let todoLi = document.createElement("li");
             let todoContent = document.createElement("p");
-            
+
             todoContent.addEventListener('dblclick', function(e) {
                 let editmode = view.createChangeTodos(i);
                 todoContent.textContent = "";
