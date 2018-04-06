@@ -32,14 +32,11 @@ body {
     position: relative;
 }
 .new-todo input{
+    padding-left: 5%;
     width: 100%;
     border: none;
     font-size: 24px;
     outline: none;
-    /*-webkit-box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);*/
-    /*-moz-box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);*/
-    /*box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);*/
-    /*padding: 15px 60px 15px 15px;*/
 }
 .new-todo input:focus{
     outline: none;
@@ -55,12 +52,20 @@ body {
     font-weight: 300;
     color: #e6e6e6;
 }
+.toggle-all {
+    position: absolute;
+    /*bottom: 20px;*/
+    left: 20px;
+}
+
 .add-todos {
     position: absolute;
     top: 0;
     right: 10px;
     bottom: 0;
-    width: 60px;
+}
+.toggle-all, .add-todos {
+    width: 50px;
     height: 30px;
     background: lightgreen;
     border: none;
@@ -84,12 +89,6 @@ li {
     -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
-.toggle-all {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-
-}
 
 span {
     border: 1px solid gray;
@@ -107,11 +106,6 @@ span {
     border: none;
     font-size: 24px;
 }
-/*.checked {*/
-    /*content: "X";*/
-    /*border: 1px solid #999;*/
-    /*border-radius: 50%;*/
-/*}*/
 .checkButton {
     background: none;
     color: lightseagreen;
@@ -130,4 +124,16 @@ p {
 }
 .editable {
     width: auto;
+}
+
+.changeTodo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding-left: 10%;
+    font-size: 24px;
 }

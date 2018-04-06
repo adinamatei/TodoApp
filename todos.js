@@ -45,16 +45,7 @@ const handler = {
         addTodoTextInput.value = '';
         view.displayTodos();
     },
-    // changeTodo: function () {
-    //     let position = document.querySelector('#position');
-    //     let changeTodoButton = document.querySelector('.changeTodoButton');
-    //     todosList.changeTodo(position.value, changeTodoButton.value);
-    //     position.value = '';
-    //     changeTodoButton.value = '';
-    //     view.displayTodos();
-    // },
     updateTodo: function(position, newText) {
-        console.log(position, newText);
         todosList.changeTodo(position, newText);
         view.displayTodos();
     },
@@ -82,7 +73,7 @@ const view = {
 
             todoContent.addEventListener('dblclick', function(e) {
                 let editmode = view.createChangeTodos(i);
-                todoContent.textContent = "";
+                editmode.value = todoContent.textContent;
                 todoContent.appendChild(editmode);
             });
 
@@ -95,7 +86,7 @@ const view = {
                 todoContent.style.textDecoration = "line-through";
                 todoContent.style.color = "lightgrey"
             } else {
-                checkButton.textContent = " "
+                checkButton.textContent = " ";
             }
             todoLi.id = i;
             todoContent.textContent = todo.todoText;
